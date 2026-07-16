@@ -12,8 +12,12 @@ cask "easyalias" do
   app "EasyAlias.app"
 
   postflight do
+    system_command "/usr/bin/xattr",
+                   args: ["-cr", "#{appdir}/EasyAlias.app"],
+                   sudo: true
     system_command "/usr/bin/codesign",
-                   args: ["--force", "--deep", "--sign", "-", "#{appdir}/EasyAlias.app"]
+                   args: ["--force", "--deep", "--sign", "-", "#{appdir}/EasyAlias.app"],
+                   sudo: true
     system_command "/usr/bin/xattr",
                    args: ["-dr", "com.apple.quarantine", "#{appdir}/EasyAlias.app"],
                    sudo: true

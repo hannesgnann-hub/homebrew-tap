@@ -25,6 +25,7 @@ and removes Apple's quarantine attribute after installation so macOS can open it
 If macOS still shows "damaged" or "move to Trash", run:
 
 ```sh
+sudo xattr -cr /Applications/EasyAlias.app
 sudo codesign --force --deep --sign - /Applications/EasyAlias.app
 sudo xattr -dr com.apple.quarantine /Applications/EasyAlias.app
 ```
