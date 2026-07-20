@@ -1,8 +1,9 @@
 cask "easyalias" do
-  version "1.0.0"
-  sha256 "832042885915bfc43f167655050dfdada594e86dc6582105e86c5977348a398a"
+  version "1.0.1"
+  sha256 "06a06c2b8a5c28a3c790538e2cadcb2bacf996c5e863859824fb3c4afe4d9c2d"
 
-  url "https://github.com/hannesgnann-hub/easyalias/releases/download/v#{version}/EasyAlias_#{version}_Mac.zip"
+  url "https://raw.githubusercontent.com/hannesgnann-hub/easyalias/d1c2a9b9a8b0902456ec2108842582955d34254a/mac_export/EasyAlias.zip",
+      verified: "raw.githubusercontent.com/hannesgnann-hub/easyalias/"
   name "EasyAlias"
   desc "Graphical manager for terminal aliases"
   homepage "https://github.com/hannesgnann-hub/easyalias"
