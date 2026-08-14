@@ -1,9 +1,9 @@
 class Easyalias < Formula
   desc "Graphical manager for terminal aliases"
-  homepage "https://github.com/hannesgnann-hub/easyalias"
-  url "https://raw.githubusercontent.com/hannesgnann-hub/easyalias/d1c2a9b9a8b0902456ec2108842582955d34254a/linux_export/EasyAlias_0.1.0_arm64.deb.zip"
-  version "1.0.1"
-  sha256 "b7bb56683c4d212746cf1f8b4d1729ef44a187b33ca50b2d952a3dbb48960dd7"
+  homepage "https://easyalias.org"
+  url "https://raw.githubusercontent.com/hannesgnann-hub/easyalias/096163aa5baff744dfa35bd3b1e1d79f0817748b/linux_export/EasyAlias_0.1.0_arm64.deb.zip"
+  version "1.0.2"
+  sha256 "738a6eb45040903b1e2c091f54f6e879382466a243a024fd9ba9c3580c66724f"
   license "MIT"
 
   depends_on "binutils" => :build
