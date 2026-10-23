@@ -1,27 +1,26 @@
 cask "easyalias" do
-  version "1.0.2"
-  sha256 "3ddbd02ee578ea1c38e297060d737f9bd85aa364645e644d4dd04e48adb218b6"
+  version "1.1.1"
+  sha256 "7b9fb7af73f34b8c2d0030843965a9651290e2ec66496e2f14e58567b792f6b7"
 
-  url "https://raw.githubusercontent.com/hannesgnann-hub/easyalias/096163aa5baff744dfa35bd3b1e1d79f0817748b/mac_export/EasyAlias.zip",
-      verified: "raw.githubusercontent.com/hannesgnann-hub/easyalias/"
+  url "https://github.com/hannesgnann-hub/easyalias/releases/download/v#{version}/Mac_EasyAlias_#{version}.app.zip"
   name "EasyAlias"
   desc "Graphical manager for terminal aliases"
   homepage "https://easyalias.org/"
 
   depends_on macos: :sonoma
 
-  app "EasyAlias.app"
+  app "EasyAlias_#{version}.app", target: "EasyAlias.app"
 
-  postflight do
-    system_command "/usr/bin/xattr",
-                   args: ["-cr", "#{appdir}/EasyAlias.app"],
-                   sudo: true
-    system_command "/usr/bin/codesign",
-                   args: ["--force", "--deep", "--sign", "-", "#{appdir}/EasyAlias.app"],
-                   sudo: true
-    system_command "/usr/bin/xattr",
-                   args: ["-dr", "com.apple.quarantine", "#{appdir}/EasyAlias.app"],
-                   sudo: true
+  postflight_steps do
+    run "/usr/bin/xattr",
+        args: ["-cr", "{{appdir}}/EasyAlias.app"],
+        sudo: true
+    run "/usr/bin/codesign",
+        args: ["--force", "--deep", "--sign", "-", "{{appdir}}/EasyAlias.app"],
+        sudo: true
+    run "/usr/bin/xattr",
+        args: ["-dr", "com.apple.quarantine", "{{appdir}}/EasyAlias.app"],
+        sudo: true
   end
 
   zap trash: [

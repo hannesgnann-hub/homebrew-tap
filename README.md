@@ -44,7 +44,7 @@ easyalias
 
 ## Gatekeeper Note
 
-EasyAlias v1.0.2 is not notarized yet. The cask signs the installed app locally
+EasyAlias v1.1.1 is not notarized yet. The cask signs the installed app locally
 and removes Apple's quarantine attribute after installation so macOS can open it.
 
 If macOS still shows "damaged" or "move to Trash", run:
@@ -63,7 +63,7 @@ For a new EasyAlias release, update the version, URL, and checksum in
 Example:
 
 ```ruby
-version "1.0.2"
+version "1.1.1"
 sha256 "NEW_SHA256"
 ```
 

@@ -1,9 +1,10 @@
 class Easyalias < Formula
   desc "Graphical manager for terminal aliases"
   homepage "https://easyalias.org"
-  url "https://raw.githubusercontent.com/hannesgnann-hub/easyalias/096163aa5baff744dfa35bd3b1e1d79f0817748b/linux_export/EasyAlias_0.1.0_arm64.deb.zip"
-  version "1.0.2"
-  sha256 "738a6eb45040903b1e2c091f54f6e879382466a243a024fd9ba9c3580c66724f"
+  url "https://github.com/hannesgnann-hub/easyalias/releases/download/v1.1.1/Linux_EasyAlias_1.1.1_arm64.deb",
+      using: :nounzip
+  version "1.1.1"
+  sha256 "de58f74ae54441a3e9021361019ca5fcdc8fa2a4690994e055abe39f46892386"
   license "MIT"
 
   depends_on "binutils" => :build
@@ -13,7 +14,7 @@ class Easyalias < Formula
   depends_on "webkitgtk"
 
   def install
-    system "ar", "x", "EasyAlias_0.1.0_arm64.deb"
+    system "ar", "x", "Linux_EasyAlias_1.1.1_arm64.deb"
     system "tar", "-xzf", "data.tar.gz"
 
     libexec.install "usr/bin/easyalias"
