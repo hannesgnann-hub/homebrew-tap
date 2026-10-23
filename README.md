@@ -21,7 +21,15 @@ brew install --cask hannesgnann-hub/tap/easyalias
 
 ## Install on Linux
 
-The current Linux package supports ARM64 systems:
+The current Linux package supports ARM64 Ubuntu systems. Install its native
+desktop dependencies first:
+
+```sh
+sudo apt update
+sudo apt install libayatana-appindicator3-1 libwebkit2gtk-4.1-0 libgtk-3-0
+```
+
+Then install EasyAlias:
 
 ```sh
 brew tap hannesgnann-hub/tap
