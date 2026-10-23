@@ -50,6 +50,18 @@ Launch the installed application with:
 easyalias
 ```
 
+To register the Homebrew version in the desktop application launcher:
+
+```sh
+mkdir -p ~/.local/share/applications
+cp "$(brew --prefix easyalias)/share/applications/EasyAlias.desktop" \
+  ~/.local/share/applications/easyalias-homebrew.desktop
+update-desktop-database ~/.local/share/applications 2>/dev/null || true
+```
+
+Remove the old EasyAlias favorite from the sidebar, search for EasyAlias in the
+application overview, launch it, and add the new entry to the favorites.
+
 ## Gatekeeper Note
 
 EasyAlias v1.1.1 is not notarized yet. The cask signs the installed app locally

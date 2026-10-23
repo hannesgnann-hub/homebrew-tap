@@ -6,7 +6,7 @@ class Easyalias < Formula
   version "1.1.1"
   sha256 "de58f74ae54441a3e9021361019ca5fcdc8fa2a4690994e055abe39f46892386"
   license "MIT"
-  revision 1
+  revision 2
 
   depends_on "binutils" => :build
   depends_on arch: :arm64
@@ -18,7 +18,9 @@ class Easyalias < Formula
 
     bin.install "usr/bin/easyalias"
     inreplace "usr/share/applications/EasyAlias.desktop",
-              "Exec=easyalias", "Exec=#{bin}/easyalias"
+              "Exec=easyalias", "Exec=#{opt_bin}/easyalias"
+    inreplace "usr/share/applications/EasyAlias.desktop",
+              "Icon=easyalias", "Icon=#{opt_share}/icons/hicolor/512x512/apps/easyalias.png"
     (share/"applications").install "usr/share/applications/EasyAlias.desktop"
     (share/"icons/hicolor/512x512/apps").install "usr/share/icons/hicolor/512x512/apps/easyalias.png"
   end
@@ -32,6 +34,10 @@ class Easyalias < Formula
       EasyAlias is currently available through this formula for ARM64 Linux.
       Start it from a terminal with:
         easyalias
+
+      To add the Homebrew version to the desktop application launcher:
+        mkdir -p ~/.local/share/applications
+        cp #{opt_share}/applications/EasyAlias.desktop ~/.local/share/applications/easyalias-homebrew.desktop
     EOS
   end
 
